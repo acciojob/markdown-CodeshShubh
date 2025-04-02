@@ -18,7 +18,7 @@ const MarkdownEditor = ({markdownInput}) => {
   return (
     <div style={{border:'1px solid red', width:'50%'}} className='preview'>
  {
-    isLoading ? ( <p>Loading.....</p> ) : <div dangerouslySetInnerHTML={{ __html: marked(input) }} />)
+    isLoading ? ( <p>Loading.....</p> ) : (<div dangerouslySetInnerHTML={{ __html: marked(input) }} />)
  }
     </div>
   )
