@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MarkdownEditor from './MarkdownEditor';
 
 const App =  ()=>{
-    const [markdownInput , setmarkdownInput] = useState('#Enter your Mark Down text here')
+    const [markdownInput , setmarkdownInput] = useState('# Heading\n\nThis is some **bold** text.')
       return(
         <div style={{display:'flex'}} className='app'>
             <textarea style={{width:'50%',  height:'50vw' , resize:'none'}}
