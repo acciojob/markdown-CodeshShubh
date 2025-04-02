@@ -1,13 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import {marked} from 'marked';
 
 const MarkdownEditor = ({markdownInput}) => {
-    const [input, setinput] = useState('')
+    const [input, setinput] = useState('');
+    const [isLoading , setisLoading] = useState(false)
     useEffect(()=>{
-       setinput(markdownInput)
+        setisLoading(true);
+       const vaule=  setTimeout(()=>{
+            setinput(markdownInput)
+            setisLoading(false)
+         },500)
+         return ()=>{
+             
+       clearInterval(vaule)
+         }
     },[markdownInput])
   return (
     <div style={{border:'1px solid red', width:'50%'}} className='preview'>
-        <h1>{input}</h1>
+ {
+    isLoading ? ( <p>Loading.....</p> ) : (<div dangerouslySetInnerHTML={{__html:marked(input)}} />)
+ }
     </div>
   )
 }
